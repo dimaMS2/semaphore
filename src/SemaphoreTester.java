@@ -14,14 +14,19 @@ public class SemaphoreTester {
         return instance;
     }
 
-    public void checkSemaphore(TrafficSemaphore trafficSemaphore) { // Method creates instance of TrafficSemaphore class, and uses method
-        while (true) {                                              // showColorDependingOnTime of this class. Because scanner are used it is
-            System.out.println("Введите время от 0 в минутах");     // necessary to apply try catch
-            Scanner scanner = new Scanner(System.in);
+    public void checkSemaphore(TrafficSemaphore trafficSemaphore) { // This method checks showColorDependingOnTime method of TrafficSemaphore with try catch.
+        Scanner scanner = new Scanner(System.in);                   // If user will type non numerical value then this input will compare with String "stop".
+        double input = 0;                                           // If input value equals "stop" then cycle is breaks else if input value not numerical and doesn't equals stop
+        while (true) {                                              // in console will displays notice about not correct input value.
+            System.out.println("Введите время от 0 в минутах, либо stop для выхода");
             try {
-                double input = scanner.nextDouble();
+                input = scanner.nextDouble();
                 trafficSemaphore.showColorDependingOnTime(input);
             } catch (InputMismatchException e) {
+                String temp = scanner.nextLine();
+                if (temp.equals("stop")) {
+                    break;
+                }
                 System.out.println("Введено некорректное значение!");
             }
             System.out.println();

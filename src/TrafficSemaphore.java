@@ -1,5 +1,5 @@
 public class TrafficSemaphore {
-    // This class shows the name of the color on the console depending on input value and next condition:
+    // This class shows the name of the color on the console depending on input value and next conditions:
     //
     // The first two minutes the green light is on.
     // Then three minutes is yellow light.
